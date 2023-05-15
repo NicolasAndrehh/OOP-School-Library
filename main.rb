@@ -24,6 +24,5 @@ p student.classroom
 p student.add_classroom('B')
 p classroom_b.students
 
-
 rental = Rental.new(Time.now, person, book)
 p rental
