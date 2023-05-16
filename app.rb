@@ -84,7 +84,6 @@ class App
     @people << Student.new(age, nil, name)
     puts 'New person (Student) created successfully'
 
-
     display_menu
   end
 
@@ -139,7 +138,6 @@ class App
 
     @books << Book.new(title, author)
     puts 'Book created successfully'
-
 
     display_menu
   end
