@@ -1,6 +1,6 @@
 class Rental
   # Getters and Setters
-  attr_accessor :date
+  attr_accessor :date, :person, :book
 
   # Constructor
   def initialize(date, person, book)
