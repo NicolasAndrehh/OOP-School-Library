@@ -171,10 +171,10 @@ class App
 
   def list_rentals_by_person_id
     print 'ID of the person: '
-    id = gets.chomp.to_i
+    id = gets.chomp
 
     rentals = @rentals.select do |rental|
-      rental.person.id.to_i == id
+      rental.person.id == id
     end
 
     if rentals.empty?
