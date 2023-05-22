@@ -87,6 +87,11 @@ To run the project, execute the following command:
 - Twitter: [@nicolasolaya22](https://twitter.com/nicolasolaya22)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/nicolas-olaya/)
 
+👤 **Timothy Njoroge**
+
+- GitHub: [@NicolasAndrehh](https://github.com/simplegooe)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/timothy-njoroge-mwangi)
+
 <p align="right"><a href="#readme-top">Back to top</a></p>
 
 ## 🔭 Future Features <a name="future-features"></a>
