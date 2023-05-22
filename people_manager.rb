@@ -6,6 +6,7 @@ class PeopleManager < BaseManager
   attr_accessor :people
 
   def initialize
+    super
     @people = []
   end
 

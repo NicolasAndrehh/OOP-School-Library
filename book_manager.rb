@@ -5,6 +5,7 @@ class BookManager < BaseManager
   attr_accessor :books
 
   def initialize
+    super
     @books = []
   end
 
