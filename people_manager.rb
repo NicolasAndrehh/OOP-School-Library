@@ -26,9 +26,13 @@ class PeopleManager < BaseManager
 
     case input
     when '1'
-      create_student
+      newStudent = create_student
+      @people << newStudent
+      puts 'New person (Student) created successfully'
     when '2'
-      create_teacher
+      newTeacher = create_teacher
+      @people << newTeacher
+      puts 'New person (Teacher) created successfully'
     else
       puts 'Please enter a valid number (1 or 2)'
       create_person
@@ -38,9 +42,7 @@ class PeopleManager < BaseManager
   # Create a student
   def create_student
     age, name = student_data
-
-    @people << Student.new(age, nil, name)
-    puts 'New person (Student) created successfully'
+    Student.new(age, nil, name)
   end
 
   def student_data
@@ -56,9 +58,7 @@ class PeopleManager < BaseManager
   # Create a teacher
   def create_teacher
     age, name, specialization = teacher_data
-
-    @people << Teacher.new(age, specialization, name)
-    puts 'New person (Teacher) created successfully'
+    Teacher.new(age, specialization, name)    
   end
 
   def teacher_data
