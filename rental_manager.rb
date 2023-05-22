@@ -6,31 +6,31 @@ class RentalManager
   end
 
   # Create a rental
-  def create_rental (people_manager, book_manager)
-    date, person_index, book_index = get_rental_data(people_manager, book_manager)
+  def create_rental(people_manager, book_manager)
+    date, person_index, book_index = rental_data(people_manager, book_manager)
 
     @rentals << Rental.new(date, people_manager.people[person_index], book_manager.books[book_index])
     puts 'Rental created successfully'
   end
 
-  def get_rental_data (people_manager, book_manager)
-      puts 'Select a book from the following list by number: '
-      book_manager.list_all_books
-      book_index = gets.chomp.to_i
-  
-      puts 'Select a person from the following list by number (Not ID): '
-      people_manager.list_all_people
-      person_index = gets.chomp.to_i
-  
-      print 'Date: '
-      date = gets.chomp
+  def rental_data(people_manager, book_manager)
+    puts 'Select a book from the following list by number: '
+    book_manager.list_all_books
+    book_index = gets.chomp.to_i
 
-      [date, person_index, book_index]
+    puts 'Select a person from the following list by number (Not ID): '
+    people_manager.list_all_people
+    person_index = gets.chomp.to_i
+
+    print 'Date: '
+    date = gets.chomp
+
+    [date, person_index, book_index]
   end
 
   # List all rentals for a given person id
   def list_rentals_by_person_id
-    id, rentals = get_rentals_by_id
+    id, rentals = rentals_by_id
 
     if rentals.empty?
       puts 'This person has no rentals'
@@ -42,7 +42,7 @@ class RentalManager
     end
   end
 
-  def get_rentals_by_id 
+  def rentals_by_id
     print 'ID of the person: '
     id = gets.chomp.to_i
 
@@ -51,5 +51,5 @@ class RentalManager
     end
 
     [id, rentals]
-  end 
-end 
+  end
+end

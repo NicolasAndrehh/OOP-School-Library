@@ -35,13 +35,13 @@ class PeopleManager
 
   # Create a student
   def create_student
-    age, name = get_student_data
+    age, name = student_data
 
     @people << Student.new(age, nil, name)
     puts 'New person (Student) created successfully'
   end
 
-  def get_student_data 
+  def student_data
     print 'Age: '
     age = gets.chomp
 
@@ -53,13 +53,13 @@ class PeopleManager
 
   # Create a teacher
   def create_teacher
-    age, name, specialization = get_teacher_data
+    age, name, specialization = teacher_data
 
     @people << Teacher.new(age, specialization, name)
     puts 'New person (Teacher) created successfully'
   end
 
-  def get_teacher_data
+  def teacher_data
     print 'Age: '
     age = gets.chomp
 

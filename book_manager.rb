@@ -12,19 +12,19 @@ class BookManager
     check_empty_list(@books, 'books')
 
     @books.each_with_index do |book, index|
-        puts "#{index}) Title: #{book.title}, Author: #{book.author}"
+      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
     end
   end
 
   # Create a book
   def create_book
-    title, author = get_book_data
+    title, author = book_data
 
     @books << Book.new(title, author)
     puts 'Book created successfully'
   end
 
-  def get_book_data
+  def book_data
     print 'Title: '
     title = gets.chomp
 

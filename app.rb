@@ -47,5 +47,4 @@ class App
     @rentals_manager.list_rentals_by_person_id
     start
   end
-  
 end
