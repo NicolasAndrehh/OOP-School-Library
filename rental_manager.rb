@@ -1,6 +1,8 @@
 require_relative 'rental'
 
 class RentalManager
+  attr_accessor :rentals
+
   def initialize
     @rentals = []
   end
