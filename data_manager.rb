@@ -12,11 +12,11 @@ class DataManager
     person_data, book_data, rental_data = serializate_data
 
     # Write data to files
-    File.write('people.json', JSON.generate(person_data))
+    File.write('./data/people.json', JSON.generate(person_data))
 
-    File.write('books.json', JSON.generate(book_data))
+    File.write('./data/books.json', JSON.generate(book_data))
 
-    File.write('rentals.json', JSON.generate(rental_data))
+    File.write('./data/rentals.json', JSON.generate(rental_data))
   end
 
   def serializate_data
