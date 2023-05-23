@@ -1,5 +1,5 @@
-require_relative 'student'
-require_relative 'teacher'
+require_relative './models/student'
+require_relative './models/teacher'
 require_relative 'base_manager'
 
 class PeopleManager < BaseManager

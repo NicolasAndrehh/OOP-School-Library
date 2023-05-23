@@ -1,4 +1,4 @@
-require_relative 'rental'
+require_relative './models/rental'
 
 class RentalManager
   def initialize
