@@ -36,6 +36,10 @@ class Menu
 
     action = @menu_actions[option]
 
+    if action == :exit 
+      @app.save_data
+    end
+
     if action
       @app.send(action)
     else
