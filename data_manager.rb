@@ -20,27 +20,23 @@ class DataManager
   end
 
   def load_data
-    if File.exist?('./data/people.json')
-      person_data = File.read('./data/people.json')
-    end
+    person_data = File.read('./data/people.json') if File.exist?('./data/people.json')
 
-    if File.exist?('./data/books.json')
-      book_data = File.read('./data/books.json')
-    end
+    book_data = File.read('./data/books.json') if File.exist?('./data/books.json')
 
-    if File.exist?('./data/rentals.json')
-      rental_data = File.read('./data/rentals.json')
-    end
+    rental_data = File.read('./data/rentals.json') if File.exist?('./data/rentals.json')
 
-    deserialize_data(JSON.parse(check_if_nil(person_data)), JSON.parse(check_if_nil(book_data)), JSON.parse(check_if_nil(rental_data)))
+    deserialize_data(JSON.parse(check_if_nil(person_data)), JSON.parse(check_if_nil(book_data)),
+                     JSON.parse(check_if_nil(rental_data)))
   end
 
   def serializate_data
     people_data = @people_manager.people.map do |person|
-      if person.class == 'Teacher'
-        { id: person.id, name: person.name, age: person.age, person_type: person.class, specialization: person.specialization }
+      if person.instance_of?('Teacher')
+        { id: person.id, name: person.name, age: person.age, person_type: person.class,
+          specialization: person.specialization }
       else
-        { id: person.id, name: person.name, age: person.age, person_type: person.class, }
+        { id: person.id, name: person.name, age: person.age, person_type: person.class }
       end
     end
 
@@ -57,7 +53,6 @@ class DataManager
 
   def deserialize_data(people_data, book_data, rental_data)
     deserialized_people_data = people_data.map do |person|
-    
       if person['person_type'] == 'Student'
         Student.new(person['age'], nil, person['name'])
       else
