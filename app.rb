@@ -11,6 +11,7 @@ class App
     @rentals_manager = RentalManager.new
     @data_manager = DataManager.new(@people_manager, @books_manager, @rentals_manager)
     @menu = Menu.new(self)
+    load_data
   end
 
   # App methods
@@ -20,6 +21,13 @@ class App
 
   def save_data
     @data_manager.save_data
+  end
+
+  def load_data
+    people_data, book_data, rental_data = @data_manager.load_data
+    @people_manager.people = people_data
+    @books_manager.books = book_data
+    @rentals_manager.rentals = rental_data
   end
 
   # Methods for people management
