@@ -2,17 +2,32 @@ require_relative 'people_manager'
 require_relative 'book_manager'
 require_relative 'rental_manager'
 require_relative 'menu_manager'
+require_relative 'data_manager'
 
 class App
   def initialize
     @people_manager = PeopleManager.new
     @books_manager = BookManager.new
     @rentals_manager = RentalManager.new
+    @data_manager = DataManager.new(@people_manager, @books_manager, @rentals_manager)
     @menu = Menu.new(self)
+    load_data
   end
 
+  # App methods
   def start
     @menu.display_menu
+  end
+
+  def save_data
+    @data_manager.save_data
+  end
+
+  def load_data
+    people_data, book_data, rental_data = @data_manager.load_data
+    @people_manager.people = people_data
+    @books_manager.books = book_data
+    @rentals_manager.rentals = rental_data
   end
 
   # Methods for people management
