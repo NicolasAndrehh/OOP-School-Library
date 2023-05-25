@@ -1,4 +1,4 @@
-require_relative 'book'
+require_relative './models/book'
 require_relative 'base_manager'
 
 class BookManager < BaseManager
